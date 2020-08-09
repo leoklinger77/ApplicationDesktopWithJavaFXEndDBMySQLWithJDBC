@@ -17,7 +17,7 @@ public class DepartmentService {
 	}
 
 	public void saveOrUpdate(Department obj) {
-		if(obj.getName() == null) {
+		if (obj.getName() == null) {
 			throw new DbException("Inserir Department");
 		}
 		if (obj.getId() == null) {
@@ -25,6 +25,10 @@ public class DepartmentService {
 		} else {
 			dao.update(obj);
 		}
+	}
+
+	public void remove(Department obj) {
+		dao.deleteById(obj.getId());
 	}
 
 }
